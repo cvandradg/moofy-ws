@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/apps/moofy-admin/browser",
+    "public": "dist/apps/moofy/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }
