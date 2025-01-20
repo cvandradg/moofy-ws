@@ -37,6 +37,7 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
+      - run: yarn install
       - run: npx cypress install
       - uses: nrwl/nx-set-shas@v4
 
