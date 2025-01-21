@@ -86,8 +86,8 @@ describe('PurchaseOrderBreakdownComponent', () => {
     component = fixture.componentInstance;
 
     // Set inputs
-    component.purchaseOrder = mockPurchaseOrder;
-    component.purchaseOrderDetails$ = mockPurchaseOrderDetails;
+    component.purchaseOrder = mockPurchaseOrder();
+    component.purchaseOrderDetails = mockPurchaseOrderDetails;
 
     fixture.detectChanges();
   });
