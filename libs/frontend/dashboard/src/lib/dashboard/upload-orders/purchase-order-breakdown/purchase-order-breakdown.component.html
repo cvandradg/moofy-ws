@@ -1,0 +1,40 @@
+@if(this.purchaseOrder.Location !== undefined) {
+<div class="supercenter">
+  {{ 'Supercenter ' + this.purchaseOrder.Location }}
+</div>
+}
+
+<div class="display-order-details">
+  @if(!loading && this.purchaseOrder.Location === undefined) {
+  <p>Seleccione una orden de compra para ver información.</p>
+  } @if(!loading && this.purchaseOrder.Location !== undefined &&
+  this.purchaseOrderDetails) {
+  <table
+    mat-table
+    [dataSource]="purchaseOrderDetails.items"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre del artículo</th>
+      <td mat-cell *matCellDef="let element">{{ element.itemNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Cantidad del artículo</th>
+      <td mat-cell *matCellDef="let element">{{ element.quantityOrdered }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  } @if (loading) {
+  <fa-icon
+    [icon]="['far', 'spinner-third']"
+    class="fa-spin"
+    style="animation-duration: 0.9s"
+  />
+  }
+
+  <!-- <fa-icon [icon]="['fas', 'sliders']" /> -->
+</div>
